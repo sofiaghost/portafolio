@@ -1,0 +1,474 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Laura Vallejo · Portafolio</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Portafolio de Laura Sofía Vallejo, estudiante de Ingeniería de Sistemas. Desarrollo y diseño.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: single column, terminal-flavored hero beside the ghost mark, then content bands on a 12-col grid */
+:root{
+  --bg:#F3F4F8; --surface:#FFFFFF; --ink:#151826; --muted:#5A5F75; --line:#DDE0EA;
+  --accent:#B0237E; --accent-soft:#F8E1EF; --ghost:#6E76B8; --ghost-soft:#E6E8F6;
+  --term:#151826; --term-fg:#E9EAF2; --term-dim:#8E93AD; --term-accent:#EE6BC0;
+  --display:"Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --body:"IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --mono:"JetBrains Mono", ui-monospace, "SFMono-Regular", Consolas, monospace;
+  --radius:14px;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --bg:#0F1117; --surface:#171A23; --ink:#ECEDF4; --muted:#9A9FB6; --line:#272B38;
+  --accent:#EE6BC0; --accent-soft:#2E1A29; --ghost:#A3AAE8; --ghost-soft:#1E2133;
+  --term:#0A0C11; --term-fg:#E9EAF2; --term-dim:#7C819A; --term-accent:#EE6BC0;
+  color-scheme:dark; } }
+:root[data-theme="dark"]{
+  --bg:#0F1117; --surface:#171A23; --ink:#ECEDF4; --muted:#9A9FB6; --line:#272B38;
+  --accent:#EE6BC0; --accent-soft:#2E1A29; --ghost:#A3AAE8; --ghost-soft:#1E2133;
+  --term:#0A0C11; --term-fg:#E9EAF2; --term-dim:#7C819A; --term-accent:#EE6BC0;
+  color-scheme:dark; }
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.6;
+  -webkit-font-smoothing:antialiased;transition:background .3s,color .3s}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1080px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;line-height:1.1;letter-spacing:-.01em}
+p{margin:0}
+.mono{font-family:var(--mono)}
+.label{font-family:var(--mono);font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+
+/* Nav */
+header.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--bg) 86%,transparent);
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;gap:16px;padding-block:12px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--mono);font-size:.92rem;font-weight:500}
+.brand svg{width:28px;height:28px}
+.nav ul{list-style:none;display:flex;gap:4px;margin:0 0 0 auto;padding:0}
+.nav ul a{display:block;padding:6px 10px;border-radius:8px;text-decoration:none;font-size:.92rem;color:var(--muted)}
+.nav ul a:hover{color:var(--ink);background:var(--ghost-soft)}
+.toggles{display:flex;gap:6px}
+.tbtn{font-family:var(--mono);font-size:.8rem;border:1px solid var(--line);background:var(--surface);color:var(--ink);
+  border-radius:8px;height:34px;min-width:40px;padding:0 10px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:6px}
+.tbtn:hover{border-color:var(--ghost)}
+.tbtn svg{width:16px;height:16px}
+@media (max-width:760px){ .nav ul{display:none} .toggles{margin-left:auto} }
+
+/* Hero */
+.hero .wrap{display:grid;grid-template-columns:1.25fr 1fr;gap:48px;align-items:center;padding-block:72px 64px}
+.hero h1{font-size:clamp(2.4rem,6vw,4.4rem);font-weight:800}
+.hero h1 .hl{color:var(--accent)}
+.hero .lead{font-size:1.15rem;color:var(--muted);max-width:52ch;margin-top:20px}
+.status{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:.8rem;padding:6px 12px;border-radius:99px;
+  background:var(--accent-soft);color:var(--accent);margin-bottom:22px}
+.status i{width:8px;height:8px;border-radius:50%;background:var(--accent);animation:pulse 2s infinite}
+@keyframes pulse{50%{opacity:.35}}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.btn{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:.95rem;text-decoration:none;padding:12px 20px;border-radius:10px;
+  border:1px solid var(--ink);transition:transform .15s,background .15s}
+.btn svg{width:18px;height:18px}
+.btn.primary{background:var(--ink);color:var(--bg)}
+.btn.ghost{background:transparent;color:var(--ink)}
+.btn:hover{transform:translateY(-2px)}
+
+.term{background:var(--term);color:var(--term-fg);border-radius:var(--radius);font-family:var(--mono);font-size:.86rem;
+  box-shadow:0 24px 60px -30px rgba(10,12,20,.55);overflow:hidden;min-width:0}
+.term .bar{display:flex;align-items:center;gap:6px;padding:10px 14px;border-bottom:1px solid rgba(255,255,255,.07);color:var(--term-dim);font-size:.75rem}
+.term .bar b{width:10px;height:10px;border-radius:50%;background:#3A3E4E}
+.term .bar span{margin-left:8px}
+.term pre{margin:0;padding:18px 18px 22px;white-space:pre-wrap;word-break:break-word;line-height:1.7}
+.term .p{color:var(--term-accent)}
+.term .d{color:var(--term-dim)}
+.cursor{display:inline-block;width:.6em;height:1.1em;vertical-align:-.2em;background:var(--term-accent);animation:blink 1.1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.ghostmark{display:flex;justify-content:flex-end;margin-bottom:-28px;margin-right:18px;position:relative;z-index:1}
+.ghostmark svg{width:92px;height:92px;animation:float 5s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(-8px)}}
+@media (max-width:860px){ .hero .wrap{grid-template-columns:1fr;gap:40px;padding-block:48px} }
+
+/* Sections */
+section.band{padding-block:80px;border-top:1px solid var(--line)}
+.sec-head{display:flex;align-items:baseline;gap:14px;margin-bottom:40px;flex-wrap:wrap}
+.sec-head h2{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:700}
+.sec-head .label::before{content:"~/";color:var(--accent)}
+
+/* About */
+.about{display:grid;grid-template-columns:240px 1fr;gap:48px;align-items:start}
+.avatar{aspect-ratio:1;max-width:100%;border-radius:24px;background:var(--ghost-soft);display:grid;place-items:center;border:1px solid var(--line)}
+.avatar svg{width:62%;height:62%}
+.about-text{display:grid;gap:16px;max-width:62ch;min-width:0}
+.about-text p{font-size:1.05rem}
+.facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:12px}
+.fact{border-top:2px solid var(--ink);padding-top:10px}
+.fact strong{display:block;font-family:var(--display);font-size:1.05rem}
+.fact span{font-size:.88rem;color:var(--muted)}
+@media (max-width:760px){ .about{grid-template-columns:1fr;gap:28px} .avatar{max-width:180px} .facts{grid-template-columns:1fr} }
+
+/* Projects */
+.projects{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+.proj{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);display:flex;flex-direction:column;overflow:hidden;
+  transition:transform .2s,border-color .2s;min-width:0}
+.proj:hover{transform:translateY(-4px);border-color:var(--ghost)}
+.proj .shot{aspect-ratio:16/9;max-width:100%;background:var(--ghost-soft);display:grid;place-items:center;border-bottom:1px solid var(--line);
+  font-family:var(--mono);color:var(--ghost);font-size:1.6rem;position:relative}
+.proj .shot small{position:absolute;left:12px;bottom:10px;font-size:.7rem;color:var(--muted)}
+.proj .body{padding:22px;display:flex;flex-direction:column;gap:12px;flex:1}
+.proj h3{font-size:1.35rem}
+.proj p{color:var(--muted);font-size:.97rem}
+.pill{align-self:flex-start;font-family:var(--mono);font-size:.72rem;padding:3px 10px;border-radius:99px;border:1px solid currentColor}
+.pill.wip{color:var(--accent)}
+.pill.soon{color:var(--ghost)}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto;padding-top:6px}
+.tags span{font-family:var(--mono);font-size:.74rem;padding:3px 8px;border-radius:6px;background:var(--bg);color:var(--muted)}
+.links{display:flex;gap:16px;font-size:.9rem;font-weight:600}
+.links a{text-decoration:none;border-bottom:1px solid var(--accent)}
+.links .off{color:var(--muted);font-weight:500}
+@media (max-width:760px){ .projects{grid-template-columns:1fr} }
+
+/* Roadmap */
+.roadmap{margin-top:56px}
+.roadmap > .label{display:block;margin-bottom:16px}
+.road{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.road li{border:1px dashed var(--line);border-radius:var(--radius);padding:20px;display:flex;flex-direction:column;gap:10px;min-width:0;transition:border-color .2s}
+.road li:hover{border-color:var(--ghost)}
+.road .kind{font-family:var(--mono);font-size:.72rem;color:var(--ghost);text-transform:uppercase;letter-spacing:.06em}
+.road h3{font-size:1.12rem}
+.road p{color:var(--muted);font-size:.92rem}
+.road p.shows{color:var(--ink);font-size:.9rem;padding-left:12px;border-left:2px solid var(--accent)}
+.road p.shows::before{content:attr(data-k);}
+.road .tags{padding-top:4px}
+@media (max-width:860px){ .road{grid-template-columns:1fr} }
+
+/* Skills */
+.skills{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px}
+.skill-group h3{font-size:1.05rem;margin-bottom:14px;font-family:var(--mono);font-weight:500;color:var(--muted)}
+.skill-group ul{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.skill-group li{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 14px;background:var(--surface);border:1px solid var(--line);border-radius:10px}
+.skill-group li b{font-weight:600}
+.lvl{font-family:var(--mono);font-size:.72rem;color:var(--muted);display:flex;gap:3px;align-items:center}
+.lvl i{width:7px;height:7px;border-radius:2px;background:var(--line)}
+.lvl i.on{background:var(--accent)}
+.legend{margin-top:24px;font-size:.85rem;color:var(--muted)}
+@media (max-width:860px){ .skills{grid-template-columns:1fr} }
+
+/* Certs */
+.certs{list-style:none;margin:0;padding:0;display:grid;gap:0}
+.certs li{display:grid;grid-template-columns:110px 1fr auto;gap:20px;align-items:baseline;padding:18px 0;border-bottom:1px solid var(--line)}
+.certs li:first-child{border-top:1px solid var(--line)}
+.certs time{font-family:var(--mono);font-size:.85rem;color:var(--muted);font-variant-numeric:tabular-nums}
+.certs strong{font-family:var(--display);font-size:1.1rem;font-weight:700;display:block}
+.certs span{font-size:.9rem;color:var(--muted)}
+.certs .tagc{font-family:var(--mono);font-size:.72rem;color:var(--ghost);background:var(--ghost-soft);padding:3px 10px;border-radius:6px;white-space:nowrap;justify-self:start}
+@media (max-width:600px){ .certs li{grid-template-columns:1fr;gap:4px} }
+
+/* Contact */
+.contact{display:grid;grid-template-columns:1.2fr 1fr;gap:48px;align-items:center}
+.contact h2{font-size:clamp(2rem,5vw,3.2rem);font-weight:800}
+.contact p{color:var(--muted);margin-top:16px;max-width:46ch}
+.cards{display:grid;gap:12px;min-width:0}
+.ccard{display:flex;align-items:center;gap:14px;padding:16px 18px;background:var(--surface);border:1px solid var(--line);border-radius:12px;min-width:0}
+.ccard svg{width:22px;height:22px;flex:none;color:var(--accent)}
+.ccard .t{min-width:0;flex:1}
+.ccard .t small{display:block;font-size:.75rem;color:var(--muted);font-family:var(--mono)}
+.ccard .t a,.ccard .t span{font-weight:600;word-break:break-all;text-decoration:none}
+.copy{font-family:var(--mono);font-size:.75rem;border:1px solid var(--line);background:var(--bg);color:var(--ink);border-radius:8px;padding:6px 10px;cursor:pointer;flex:none}
+.copy:hover{border-color:var(--accent)}
+@media (max-width:860px){ .contact{grid-template-columns:1fr;gap:32px} }
+
+footer{border-top:1px solid var(--line)}
+footer .wrap{padding-block:28px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-family:var(--mono);font-size:.8rem;color:var(--muted)}
+
+/* Reveal on scroll (only for items below the fold at load) */
+.reveal{transition:transform .7s cubic-bezier(.2,.7,.2,1),opacity .7s}
+.reveal.pending{transform:translateY(24px);opacity:.25}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  .reveal.pending{transform:none;opacity:1}
+}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="ghost" viewBox="0 0 100 100">
+      <path d="M18 88V44a32 32 0 0 1 64 0v44l-10.7-8-10.6 8L50 80l-10.7 8-10.6-8z" fill="var(--ghost)"/>
+      <text x="33" y="54" font-family="JetBrains Mono, monospace" font-weight="500" font-size="20" fill="var(--bg)">&gt;</text>
+      <rect x="53" y="50" width="14" height="4" rx="1" fill="var(--bg)"/>
+    </symbol>
+  </defs>
+</svg>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#inicio" aria-label="Inicio"><svg aria-hidden="true"><use href="#ghost"/></svg>sofiaghost</a>
+    <ul>
+      <li><a href="#sobre-mi" data-i18n="nav.about">Sobre mí</a></li>
+      <li><a href="#proyectos" data-i18n="nav.projects">Proyectos</a></li>
+      <li><a href="#habilidades" data-i18n="nav.skills">Habilidades</a></li>
+      <li><a href="#certificaciones" data-i18n="nav.certs">Certificaciones</a></li>
+      <li><a href="#contacto" data-i18n="nav.contact">Contacto</a></li>
+    </ul>
+    <div class="toggles">
+      <button class="tbtn" id="langBtn" type="button" aria-label="Cambiar idioma">EN</button>
+      <button class="tbtn" id="themeBtn" type="button" aria-label="Cambiar tema">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="inicio">
+  <div class="wrap">
+    <div>
+      <div class="status"><i></i><span data-i18n="hero.status">Disponible para prácticas · 2027</span></div>
+      <h1><span data-i18n="hero.hi">Hola, soy</span> <span class="hl">Laura Vallejo</span>.</h1>
+      <p class="lead" data-i18n="hero.lead">Estudiante de Ingeniería de Sistemas. Me muevo entre el desarrollo y el diseño: construyo backends con Java y Python, y me importa que lo que hago se vea y se sienta bien.</p>
+      <div class="cta">
+        <a class="btn primary" href="#proyectos"><span data-i18n="hero.cta1">Ver proyectos</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn ghost" href="cv.pdf" download data-cv>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>
+          <span data-i18n="hero.cv">Descargar CV</span></a>
+      </div>
+    </div>
+    <div style="min-width:0">
+      <div class="ghostmark"><svg aria-hidden="true"><use href="#ghost"/></svg></div>
+      <div class="term" role="img" aria-label="Terminal con presentación">
+        <div class="bar"><b></b><b></b><b></b><span>sofiaghost@portfolio: ~</span></div>
+<pre><span class="p">$</span> whoami
+laura sofía vallejo
+<span class="p">$</span> cat stack.txt
+<span class="d"># backend</span>  java · spring boot · python · django
+<span class="d"># también</span> c · diseño de interfaces
+<span class="p">$</span> <span id="typed" data-i18n="hero.typed">echo "buscando mi primera práctica"</span><span class="cursor"></span></pre>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="sobre-mi">
+  <div class="wrap">
+    <div class="sec-head"><span class="label">about</span><h2 data-i18n="about.title">Sobre mí</h2></div>
+    <div class="about">
+      <div class="avatar reveal"><svg aria-hidden="true"><use href="#ghost"/></svg></div>
+      <div class="about-text reveal">
+        <p data-i18n="about.p1">Soy Laura Sofía, aunque en internet me encuentras como <strong>sofiaghost</strong>. Estudio Ingeniería de Sistemas y todavía estoy descubriendo dónde quiero especializarme, pero tengo claro lo que más disfruto: construir software y diseñar cómo la gente lo usa.</p>
+        <p data-i18n="about.p2">He trabajado con Spring Boot y Django en proyectos académicos, y estoy creando una plataforma para compartir apuntes de ingeniería en español. Busco una práctica o primer empleo donde pueda aprender rápido, aportar en equipo y crecer tanto en código como en producto.</p>
+        <div class="facts">
+          <div class="fact"><strong data-i18n="about.f1t">Ingeniería de Sistemas</strong><span data-i18n="about.f1s">Pregrado en curso</span></div>
+          <div class="fact"><strong data-i18n="about.f2t">Desarrollo + diseño</strong><span data-i18n="about.f2s">Lo que más me motiva</span></div>
+          <div class="fact"><strong>ES · EN</strong><span data-i18n="about.f3s">Idiomas</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="proyectos">
+  <div class="wrap">
+    <div class="sec-head"><span class="label">projects</span><h2 data-i18n="proj.title">Proyectos</h2></div>
+    <div class="projects">
+      <article class="proj reveal">
+        <div class="shot"><svg aria-hidden="true" style="width:72px;height:72px"><use href="#ghost"/></svg><small data-i18n="proj.shot">captura pendiente</small></div>
+        <div class="body">
+          <span class="pill wip" data-i18n="proj.wip">En desarrollo</span>
+          <h3>SofiaGhost Apuntes</h3>
+          <p data-i18n="proj.p1">Plataforma para compartir apuntes de Ingeniería de Sistemas en español, con su propia identidad visual y presencia en redes. Diseño la marca, la interfaz y el sitio.</p>
+          <div class="tags"><span>Web</span><span data-i18n="proj.t1">Diseño de marca</span><span>UI/UX</span></div>
+          <div class="links"><span class="off" data-i18n="proj.l1">Demo pronto</span></div>
+        </div>
+      </article>
+      <article class="proj reveal">
+        <div class="shot">ghostOS<small data-i18n="proj.shot">captura pendiente</small></div>
+        <div class="body">
+          <span class="pill soon" data-i18n="proj.soon">Próximamente</span>
+          <h3>ghostOS</h3>
+          <p data-i18n="proj.p2">Un espacio de organización personal que reúne tareas, calendario y listas en un solo lugar, integrado con Google Tasks y Google Calendar.</p>
+          <div class="tags"><span data-i18n="proj.t2">Productividad</span><span>Google Tasks API</span><span>Google Calendar API</span></div>
+          <div class="links"><span class="off" data-i18n="proj.l2">Repositorio pronto</span></div>
+        </div>
+      </article>
+    </div>
+    <div class="roadmap">
+      <span class="label" data-i18n="road.label">en cola · próximos proyectos</span>
+      <ul class="road">
+        <li class="reveal">
+          <span class="kind">full stack · datos</span>
+          <h3>SofiaGhost Opciones</h3>
+          <p data-i18n="road.p1">Directorio de instituciones y programas de la Sabana de Occidente.</p>
+          <p class="shows" data-i18n="road.s1">Modelado de datos relacional, búsqueda con filtros combinados, trazabilidad de fuentes oficiales y fechas de actualización, interfaz accesible y responsive.</p>
+          <div class="tags"><span>Django</span><span>PostgreSQL</span><span>Django REST Framework</span><span>Figma</span></div>
+        </li>
+        <li class="reveal">
+          <span class="kind">ia · producto</span>
+          <h3>SofiaGhost Orienta</h3>
+          <p data-i18n="road.p2">Prueba de intereses que recomienda programas del directorio.</p>
+          <p class="shows" data-i18n="road.s2">Integración de modelos de lenguaje, sistema de recomendación explicable, prompt engineering, diseño ético de IA que orienta sin decidir por la persona.</p>
+          <div class="tags"><span>Python</span><span>LLM API</span><span>Embeddings</span><span>Prompt engineering</span></div>
+        </li>
+        <li class="reveal">
+          <span class="kind">backend · seguridad</span>
+          <h3>SofiaGhost Becas</h3>
+          <p data-i18n="road.p3">Portal para que programas de becas acompañen a sus becadas.</p>
+          <p class="shows" data-i18n="road.s3">Control de acceso por roles, protección de datos personales, gestión de documentos, agenda integrada con Google Calendar y generación de CV en PDF.</p>
+          <div class="tags"><span>Spring Boot</span><span>Spring Security</span><span>PostgreSQL</span><span>Google Calendar API</span><span>Docker</span></div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="habilidades">
+  <div class="wrap">
+    <div class="sec-head"><span class="label">skills</span><h2 data-i18n="skills.title">Habilidades</h2></div>
+    <div class="skills">
+      <div class="skill-group reveal">
+        <h3 data-i18n="skills.g1">// lenguajes</h3>
+        <ul>
+          <li><b>Python</b><span class="lvl"><i class="on"></i><i class="on"></i><i class="on"></i></span></li>
+          <li><b>Java</b><span class="lvl"><i class="on"></i><i class="on"></i><i class="on"></i></span></li>
+          <li><b>C</b><span class="lvl"><i class="on"></i><i></i><i></i></span></li>
+        </ul>
+      </div>
+      <div class="skill-group reveal">
+        <h3 data-i18n="skills.g2">// frameworks</h3>
+        <ul>
+          <li><b>Spring Boot</b><span class="lvl"><i class="on"></i><i class="on"></i><i></i></span></li>
+          <li><b>Django</b><span class="lvl"><i class="on"></i><i class="on"></i><i></i></span></li>
+        </ul>
+      </div>
+      <div class="skill-group reveal">
+        <h3 data-i18n="skills.g3">// diseño y herramientas</h3>
+        <ul>
+          <li><b>Git · GitHub</b><span class="lvl"><i class="on"></i><i class="on"></i><i></i></span></li>
+          <li><b data-i18n="skills.ui">Diseño de interfaces</b><span class="lvl"><i class="on"></i><i class="on"></i><i></i></span></li>
+        </ul>
+      </div>
+    </div>
+    <p class="legend mono" data-i18n="skills.legend">■■■ uso frecuente · ■■□ con experiencia · ■□□ aprendiendo</p>
+  </div>
+</section>
+
+<section class="band" id="certificaciones">
+  <div class="wrap">
+    <div class="sec-head"><span class="label">certs</span><h2 data-i18n="certs.title">Certificaciones</h2></div>
+    <ul class="certs">
+      <li class="reveal"><time>Platzi</time><div><strong data-i18n="certs.c1">Fundamentos de IA para Data y Machine Learning</strong><span data-i18n="certs.i">Curso aprobado</span></div><span class="tagc">IA · ML</span></li>
+      <li class="reveal"><time>Platzi</time><div><strong data-i18n="certs.c2">Prompt Engineering con ChatGPT</strong><span data-i18n="certs.i">Curso aprobado</span></div><span class="tagc">IA</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="band" id="contacto">
+  <div class="wrap contact">
+    <div class="reveal">
+      <span class="label" style="display:block;margin-bottom:14px">~/contact</span>
+      <h2 data-i18n="contact.title">Hablemos.</h2>
+      <p data-i18n="contact.p">Si tienes una práctica, un proyecto o una pregunta, escríbeme. Respondo en español o inglés.</p>
+    </div>
+    <div class="cards reveal">
+      <div class="ccard">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+        <div class="t"><small data-i18n="contact.email">correo</small><a href="mailto:lauravallejob17@gmail.com" id="email">lauravallejob17@gmail.com</a></div>
+        <button class="copy" type="button" id="copyBtn" data-i18n="contact.copy">copiar</button>
+      </div>
+      <div class="ccard">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-3.2 19.5c.5.1.7-.2.7-.5v-1.8c-2.8.6-3.4-1.2-3.4-1.2-.5-1.1-1.1-1.4-1.1-1.4-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.5 2.3 1.1 2.9.8.1-.6.3-1.1.6-1.3-2.2-.3-4.6-1.1-4.6-5 0-1.1.4-2 1-2.7-.1-.3-.4-1.3.1-2.7 0 0 .8-.3 2.7 1a9.4 9.4 0 0 1 5 0c1.9-1.3 2.7-1 2.7-1 .5 1.4.2 2.4.1 2.7.6.7 1 1.6 1 2.7 0 3.9-2.4 4.7-4.6 5 .4.3.7.9.7 1.9V21c0 .3.2.6.7.5A10 10 0 0 0 12 2z"/></svg>
+        <div class="t"><small>github</small><a href="https://github.com/sofiaghost" target="_blank" rel="noopener">github.com/sofiaghost</a></div>
+      </div>
+      <a class="btn primary" href="cv.pdf" download data-cv style="justify-content:center">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>
+        <span data-i18n="hero.cv">Descargar CV</span></a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer><div class="wrap"><span>© 2026 Laura Sofía Vallejo</span><span data-i18n="footer">hecho con café y &gt;_</span></div></footer>
+
+<script>
+const T = {
+  en: {
+    "nav.about":"About","nav.projects":"Projects","nav.skills":"Skills","nav.certs":"Certifications","nav.contact":"Contact",
+    "hero.status":"Open to internships · 2027","hero.hi":"Hi, I'm",
+    "hero.lead":"Systems Engineering student. I work between development and design: I build backends with Java and Python, and I care about how what I make looks and feels.",
+    "hero.cta1":"See projects","hero.cv":"Download CV","hero.typed":'echo "looking for my first internship"',
+    "about.title":"About me",
+    "about.p1":"I'm Laura Sofía, though online I go by <strong>sofiaghost</strong>. I study Systems Engineering and I'm still finding where I want to specialize, but I know what I enjoy most: building software and designing how people use it.",
+    "about.p2":"I've worked with Spring Boot and Django on academic projects, and I'm building a platform to share engineering notes in Spanish. I'm looking for an internship or first job where I can learn fast, contribute to a team, and grow in both code and product.",
+    "about.f1t":"Systems Engineering","about.f1s":"Undergraduate, in progress","about.f2t":"Development + design","about.f2s":"What drives me","about.f3s":"Languages",
+    "proj.title":"Projects","proj.shot":"screenshot pending","proj.wip":"In progress","proj.soon":"Coming soon",
+    "proj.p1":"A platform to share Systems Engineering notes in Spanish, with its own visual identity and social presence. I design the brand, the interface and the site.",
+    "proj.t1":"Brand design","proj.l1":"Demo coming soon",
+    "proj.p2":"A personal organization hub that brings tasks, calendar and lists together in one place, integrated with Google Tasks and Google Calendar.",
+    "proj.t2":"Productivity","proj.l2":"Repository coming soon",
+    "road.label":"queued · upcoming projects",
+    "road.p1":"A directory of institutions and programs in Sabana de Occidente.",
+    "road.s1":"Relational data modeling, combined-filter search, traceability to official sources and update dates, accessible responsive interface.",
+    "road.p2":"An interests quiz that recommends programs from the directory.",
+    "road.s2":"Language model integration, explainable recommendations, prompt engineering, ethical AI design that guides without deciding for the person.",
+    "road.p3":"A portal for scholarship programs to support their scholars.",
+    "road.s3":"Role-based access control, personal data protection, document management, Google Calendar scheduling and PDF resume generation.",
+    "skills.title":"Skills","skills.g1":"// languages","skills.g2":"// frameworks","skills.g3":"// design & tools","skills.ui":"Interface design",
+    "skills.legend":"■■■ daily use · ■■□ experienced · ■□□ learning",
+    "certs.title":"Certifications","certs.c1":"AI Fundamentals for Data and Machine Learning","certs.c2":"Prompt Engineering with ChatGPT","certs.i":"Course completed",
+    "contact.title":"Let's talk.","contact.p":"If you have an internship, a project or a question, write to me. I reply in Spanish or English.",
+    "contact.email":"email","contact.copy":"copy","footer":"made with coffee and &gt;_"
+  }
+};
+const root = document.documentElement;
+const store = { get(k){try{return localStorage.getItem(k)}catch(e){return null}}, set(k,v){try{localStorage.setItem(k,v)}catch(e){}} };
+
+// i18n
+const nodes = [...document.querySelectorAll("[data-i18n]")];
+const ES = {}; nodes.forEach(n => ES[n.dataset.i18n] = n.innerHTML);
+let lang = store.get("lang") || "es";
+function setLang(l){
+  lang = l; root.lang = l;
+  nodes.forEach(n => { const k = n.dataset.i18n; n.innerHTML = (l === "en" ? T.en[k] : ES[k]) ?? ES[k]; });
+  document.getElementById("langBtn").textContent = l === "en" ? "ES" : "EN";
+  store.set("lang", l);
+}
+document.getElementById("langBtn").addEventListener("click", () => setLang(lang === "es" ? "en" : "es"));
+setLang(lang);
+
+// theme
+const saved = store.get("theme"); if (saved) root.dataset.theme = saved;
+document.getElementById("themeBtn").addEventListener("click", () => {
+  const cur = root.dataset.theme || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+  root.dataset.theme = cur === "dark" ? "light" : "dark"; store.set("theme", root.dataset.theme);
+});
+
+// copy email
+document.getElementById("copyBtn").addEventListener("click", e => {
+  const btn = e.currentTarget, txt = "lauravallejob17@gmail.com";
+  const done = () => { btn.textContent = lang === "en" ? "copied" : "copiado"; setTimeout(() => btn.textContent = lang === "en" ? "copy" : "copiar", 1600); };
+  try { navigator.clipboard.writeText(txt).then(done, () => { selectEmail(); }); } catch(err) { selectEmail(); }
+  function selectEmail(){ const r = document.createRange(); r.selectNodeContents(document.getElementById("email")); const s = getSelection(); s.removeAllRanges(); s.addRange(r); }
+});
+
+// reveal on scroll — only for elements below the fold at load
+const motionOK = !matchMedia("(prefers-reduced-motion: reduce)").matches;
+if (motionOK && "IntersectionObserver" in window) {
+  const io = new IntersectionObserver(es => es.forEach(en => { if (en.isIntersecting) { en.target.classList.remove("pending"); io.unobserve(en.target); } }), {threshold:.12});
+  document.querySelectorAll(".reveal").forEach((el, i) => {
+    if (el.getBoundingClientRect().top > innerHeight) { el.classList.add("pending"); el.style.transitionDelay = (i % 3) * 80 + "ms"; io.observe(el); }
+  });
+}
+
+// retype the last terminal line once
+if (motionOK) {
+  const el = document.getElementById("typed"), full = el.textContent; let i = 0; el.textContent = "";
+  setTimeout(function tick(){ el.textContent = full.slice(0, ++i); if (i < full.length) setTimeout(tick, 45); }, 700);
+}
+</script>
+</body>
+</html>
