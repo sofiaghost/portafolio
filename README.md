@@ -2,7 +2,7 @@
 
 Portafolio personal de **Laura Sofía Vallejo**, estudiante de Ingeniería de Sistemas interesada en el desarrollo y el diseño. Está pensado para postularme a prácticas y a mi primer empleo.
 
-🔗 **Sitio:** https://sofiaghost.github.io
+🔗 **Sitio:** https://sofiaghost.github.io/portafolio/
 
 > 🇬🇧 [English version below](#english)
 
